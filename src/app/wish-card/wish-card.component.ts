@@ -1,12 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Wish } from '../../shared/modules/Wish';
+import { DatePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-wish-card',
+  selector: 'wish-card',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './wish-card.component.html',
   styleUrl: './wish-card.component.css'
 })
 export class WishCardComponent {
-
+  @Input() wish: Wish = {
+    id: 0,
+    wish: '',
+    createdAt: new Date(),
+    completed: false
+  };  
 }

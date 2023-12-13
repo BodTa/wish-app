@@ -1,1 +1,18 @@
-<p>wish-card works!</p>
+<div
+  class="grid grid-cols-7 gap-2 items-center p-2 shadow-md bg-slate-100 rounded-md"
+>
+  <span>{{ wish.id }}. Wish |</span>
+  @if (!wish.completed) {
+    <span class="col-span-3">{{ wish.wish }}</span>
+  } @else {
+    <span class="col-span-3 line-through bg-green-400 font-bold italic">{{
+      wish.wish
+    }}</span>
+  }
+  <span class="col-span-2">{{
+    wish.completed
+      ? (wish.completedAt | date: "short")
+      : (wish.createdAt | date: "short")
+  }}</span>
+  <button class="p-1 rounded-md bg-red-400">Delete</button>
+</div>
