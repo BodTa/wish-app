@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Wish } from '../shared/modules/Wish';
 import { WishListComponent } from "./wish-list/wish-list.component";
-
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -15,11 +14,10 @@ export class AppComponent implements OnInit {
   title = 'wish-app';
 
   wishList:  Wish[] =[];
-  getWishListFromLocalStorage() {
-    this.wishList = JSON.parse(localStorage.getItem('wishList') || '[]');
-  }
-
   ngOnInit(): void {
-    this.getWishListFromLocalStorage();
-  }
+    this.wishList = localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList')!) : [
+      { id: 1, wish: 'I wish I could fly', createdAt: new Date(), completed: false },
+      { id: 2, wish: 'I wish I could be invisible', createdAt: new Date(), completed: false },
+      { id: 3, wish: 'I wish I could be a millionaire', createdAt: new Date(), completed: false },
+    ]};
 }
