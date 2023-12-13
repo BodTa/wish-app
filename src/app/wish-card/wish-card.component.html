@@ -1,11 +1,17 @@
 <div
-  class="grid grid-cols-7 gap-2 items-center p-2 shadow-md bg-slate-100 rounded-md"
+  class="grid grid-cols-8 gap-2 items-center p-2 shadow-md bg-slate-100 rounded-md"
 >
+  <input
+    class="cursor-pointer"
+    type="checkbox"
+    [checked]="wish.completed"
+    (click)="toggleCheck()"
+  />
   <span>{{ wish.id }}. Wish |</span>
   @if (!wish.completed) {
     <span class="col-span-3">{{ wish.wish }}</span>
   } @else {
-    <span class="col-span-3 line-through bg-green-400 font-bold italic">{{
+    <span class="col-span-3 line-through text-green-400 font-bold italic">{{
       wish.wish
     }}</span>
   }

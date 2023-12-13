@@ -16,4 +16,9 @@ export class WishCardComponent {
     createdAt: new Date(),
     completed: false
   };  
+
+  toggleCheck(){
+    this.wish.completed = !this.wish.completed;
+    this.wish.completedAt = new Date();
+  }
 }
