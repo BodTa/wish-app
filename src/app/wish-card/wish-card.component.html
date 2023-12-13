@@ -20,5 +20,7 @@
       ? (wish.completedAt | date: "short")
       : (wish.createdAt | date: "short")
   }}</span>
-  <button class="p-1 rounded-md bg-red-400">Delete</button>
+  <button class="p-1 rounded-md bg-red-400" (click)="deteleWish()">
+    Delete
+  </button>
 </div>

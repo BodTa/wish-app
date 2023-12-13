@@ -11,4 +11,8 @@ import { WishCardComponent } from "../wish-card/wish-card.component";
 })
 export class WishListComponent {
  @Input() wishes: Wish[] = [];
+
+ deleteWish(id: number) {
+    this.wishes = this.wishes.filter(wish => wish.id !== id);
+  }
 }

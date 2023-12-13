@@ -1,7 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Wish } from '../../shared/modules/Wish';
 import { DatePipe } from '@angular/common';
-
 @Component({
   selector: 'wish-card',
   standalone: true,
@@ -16,9 +15,12 @@ export class WishCardComponent {
     createdAt: new Date(),
     completed: false
   };  
-
+  @Output() deletedWishId = new EventEmitter<number>();
   toggleCheck(){
     this.wish.completed = !this.wish.completed;
     this.wish.completedAt = new Date();
+  }
+  deteleWish(){
+    this.deletedWishId.emit(this.wish.id);
   }
 }
