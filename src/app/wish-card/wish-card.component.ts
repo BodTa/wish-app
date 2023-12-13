@@ -16,9 +16,9 @@ export class WishCardComponent {
     completed: false
   };  
   @Output() deletedWishId = new EventEmitter<number>();
+  @Output() updatedWish = new EventEmitter<Wish>();
   toggleCheck(){
-    this.wish.completed = !this.wish.completed;
-    this.wish.completedAt = new Date();
+    this.updatedWish.emit(this.wish);
   }
   deteleWish(){
     this.deletedWishId.emit(this.wish.id);

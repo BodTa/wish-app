@@ -12,7 +12,17 @@ import { WishCardComponent } from "../wish-card/wish-card.component";
 export class WishListComponent {
  @Input() wishes: Wish[] = [];
 
+ updateWish(wish: Wish) {
+    wish.completed = !wish.completed;
+    if(wish.completed)
+    wish.completedAt = new Date();
+  else{
+    wish.completedAt = undefined;
+  }
+    localStorage.setItem('wishList', JSON.stringify(this.wishes));
+  }
  deleteWish(id: number) {
     this.wishes = this.wishes.filter(wish => wish.id !== id);
+    localStorage.setItem('wishList', JSON.stringify(this.wishes));
   }
 }
