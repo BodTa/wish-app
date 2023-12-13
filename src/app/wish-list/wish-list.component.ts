@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Wish } from '../../shared/modules/Wish';
 
 @Component({
   selector: 'wish-list',
@@ -8,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrl: './wish-list.component.css'
 })
 export class WishListComponent {
-
+ @Input() wishes: Wish[] = [];
 }
