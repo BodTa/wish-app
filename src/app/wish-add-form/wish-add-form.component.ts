@@ -13,7 +13,8 @@ export class WishAddFormComponent {
   @Output() newWish = new EventEmitter<string>();
 
   addWish(){
-    this.newWish.emit(this.wish);
+    if(this.wish !== '')
+       this.newWish.emit(this.wish);
     this.wish = '';
   }
 }
