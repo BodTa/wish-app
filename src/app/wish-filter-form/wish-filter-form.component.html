@@ -1,1 +1,9 @@
-<p>wish-filter-form works!</p>
+<select
+  class="shadow-md p-2 bg-slate-300 rounded-md"
+  [(ngModel)]="filter"
+  (ngModelChange)="filterWish()"
+>
+  <option value="0">All</option>
+  <option value="1">Completed</option>
+  <option value="2">Not Completed</option>
+</select>

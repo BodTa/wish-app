@@ -3,23 +3,31 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Wish } from '../shared/modules/Wish';
 import { WishListComponent } from "./wish-list/wish-list.component";
+import { WishFilterFormComponent } from "./wish-filter-form/wish-filter-form.component";
+
+
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, WishListComponent]
+    imports: [CommonModule, RouterOutlet, WishListComponent, WishFilterFormComponent]
 })
 export class AppComponent implements OnInit {
   title = 'wish-app';
-
   wishList:  Wish[] =[];
   initialList: Wish[] = [
     { id: 1, wish: 'I wish I could fly', createdAt: new Date(), completed: false },
     { id: 2, wish: 'I wish I could be invisible', createdAt: new Date(), completed: false },
     { id: 3, wish: 'I wish I could be a millionaire', createdAt: new Date(), completed: false },
   ];
+  filter: number = 0;
+
+
   ngOnInit(): void {
     this.wishList =localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList') || '{}') : this.initialList;
+  }
+  getFilter(filter: number){
+    this.filter = filter;
   }
 }

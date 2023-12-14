@@ -1,7 +1,7 @@
 <div class="flex flex-col items-center justify-center gap-6 w-[50vw]">
   <wish-add-form (newWish)="addNewWish($event)"></wish-add-form>
   <div class="flex flex-col gap-2 w-full">
-    @for (wish of wishes; track $index) {
+    @for (wish of filteredWishes; track $index) {
       <wish-card
         [wish]="wish"
         (updatedWish)="updateWish($event)"
