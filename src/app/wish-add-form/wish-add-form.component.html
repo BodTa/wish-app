@@ -1,1 +1,13 @@
-<p>wish-add-form works!</p>
+<div class="flex w-full gap-8 items-center justify-center">
+  <label>
+    <input
+      type="text"
+      [(ngModel)]="wish"
+      class="p-2 shadow-md w-full"
+      placeholder="Enter your wish"
+    />
+  </label>
+  <button class="p-2 rounded shadow bg-green-400" (click)="addWish()">
+    Add
+  </button>
+</div>
