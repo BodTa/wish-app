@@ -7,7 +7,7 @@
     [checked]="wish.completed"
     (click)="toggleCheck()"
   />
-  <span>{{ wish.id }}. Wish |</span>
+  <span class="font-bold">{{ wish.id }}. Wish</span>
   @if (!wish.completed) {
     <span class="col-span-3">{{ wish.wish }}</span>
   } @else {
