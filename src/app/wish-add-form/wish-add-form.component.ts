@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './wish-add-form.component.html',
-  styleUrl: './wish-add-form.component.css'
 })
 export class WishAddFormComponent {
   wish:string = '';

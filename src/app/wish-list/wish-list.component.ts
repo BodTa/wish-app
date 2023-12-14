@@ -13,7 +13,6 @@ const filters=[
     selector: 'wish-list',
     standalone: true,
     templateUrl: './wish-list.component.html',
-    styleUrl: './wish-list.component.css',
     imports: [WishCardComponent, WishAddFormComponent]
 })
 export class WishListComponent {

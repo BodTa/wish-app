@@ -6,7 +6,6 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './wish-filter-form.component.html',
-  styleUrl: './wish-filter-form.component.css'
 })
 export class WishFilterFormComponent {
   filter: number = 0; 
