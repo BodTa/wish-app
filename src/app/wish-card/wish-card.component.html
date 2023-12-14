@@ -20,7 +20,10 @@
       ? (wish.completedAt | date: "short")
       : (wish.createdAt | date: "short")
   }}</span>
-  <button class="p-1 rounded-md bg-red-400" (click)="deteleWish()">
+  <button
+    class="p-1 rounded-md bg-red-400 hover:bg-red-500 hover:scale-105 transition-all"
+    (click)="deteleWish()"
+  >
     Delete
   </button>
 </div>

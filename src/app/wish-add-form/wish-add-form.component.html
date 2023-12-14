@@ -1,13 +1,14 @@
 <div class="flex w-full gap-8 items-center justify-center">
-  <label>
-    <input
-      type="text"
-      [(ngModel)]="wish"
-      class="p-2 shadow-md w-full"
-      placeholder="Enter your wish"
-    />
-  </label>
-  <button class="p-2 rounded shadow bg-green-400" (click)="addWish()">
+  <input
+    type="text"
+    [(ngModel)]="wish"
+    class="p-2 shadow-md w-[80%] rounded outline-none focus:ring-2 focus:ring-green-400 transition-all"
+    placeholder="Enter your wish! It may come true!"
+  />
+  <button
+    class="p-2 rounded w-[20%] shadow bg-green-400 hover:bg-green-300 hover:scale-105 transition-all"
+    (click)="addWish()"
+  >
     Add
   </button>
 </div>
