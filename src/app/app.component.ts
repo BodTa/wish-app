@@ -4,6 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { Wish } from '../shared/modules/Wish';
 import { WishListComponent } from "./wish-list/wish-list.component";
 import { WishFilterFormComponent } from "./wish-filter-form/wish-filter-form.component";
+import { WishAddFormComponent } from "./wish-add-form/wish-add-form.component";
 
 
 @Component({
@@ -11,7 +12,7 @@ import { WishFilterFormComponent } from "./wish-filter-form/wish-filter-form.com
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, RouterOutlet, WishListComponent, WishFilterFormComponent]
+    imports: [CommonModule, RouterOutlet, WishListComponent, WishFilterFormComponent, WishAddFormComponent]
 })
 export class AppComponent implements OnInit {
   title = 'wish-app';
@@ -21,10 +22,20 @@ export class AppComponent implements OnInit {
     { id: 2, wish: 'I wish I could be invisible', createdAt: new Date(), completed: false },
     { id: 3, wish: 'I wish I could be a millionaire', createdAt: new Date(), completed: false },
   ];
-  
+
   filter: any;
 
   ngOnInit(): void {
     this.wishList =localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList') || '{}') : this.initialList;
+  }
+
+  addNewWish(wish: string) {
+    this.wishList.push({
+      id: this.wishList.length + 1,
+      wish: wish,
+      completed: false,
+      createdAt: new Date()
+    });
+    localStorage.setItem('wishList', JSON.stringify(this.wishList));
   }
 }

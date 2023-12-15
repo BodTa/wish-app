@@ -3,6 +3,15 @@
 >
   <div class="flex gap-4 items-start justify-center">
     <wish-filter-form [(filter)]="filter"></wish-filter-form>
-    <wish-list [wishes]="wishList.filter(filter)" [filter]="filter"></wish-list>
+    <div class="flex flex-col items-start justify-center w-[50vw]">
+      <wish-add-form
+        class="w-full"
+        (newWish)="addNewWish($event)"
+      ></wish-add-form>
+      <wish-list
+        [wishes]="wishList.filter(filter)"
+        [filter]="filter"
+      ></wish-list>
+    </div>
   </div>
 </div>

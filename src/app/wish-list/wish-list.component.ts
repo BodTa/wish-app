@@ -25,17 +25,6 @@ export class WishListComponent {
     this.wishes = this.wishes.filter(wish => wish.id !== id);
     localStorage.setItem('wishList', JSON.stringify(this.wishes));
   }
-  
-  addNewWish(wish: string) {
-    this.wishes.push({
-      id: this.wishes.length + 1,
-      wish: wish,
-      completed: false,
-      createdAt: new Date()
-    });
-    localStorage.setItem('wishList', JSON.stringify(this.wishes));
-  }
-
   get filteredWishes(){
     return this.wishes.filter(this.filter);
   }
