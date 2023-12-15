@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-2 w-[50vw] max-h-[70vh] overflow-y-auto p-2">
-  @for (wish of filteredWishes; track $index) {
+  @for (wish of wishes; track $index) {
     <wish-card
       [wish]="wish"
       (updatedWish)="updateWish($event)"
