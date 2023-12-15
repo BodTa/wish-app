@@ -3,12 +3,6 @@ import { Wish } from '../../shared/modules/Wish';
 import { WishCardComponent } from "../wish-card/wish-card.component";
 import { WishAddFormComponent } from "../wish-add-form/wish-add-form.component";
 
-const filters=[
-  (item:Wish)=>item,
-  (item:Wish)=>item.completed,
-  (item:Wish)=>!item.completed,
-]
-
 @Component({
     selector: 'wish-list',
     standalone: true,
@@ -17,7 +11,7 @@ const filters=[
 })
 export class WishListComponent {
  @Input() wishes: Wish[] = [];
-@Input() filter: number = 0;
+@Input() filter =()=>{};
  updateWish(wish: Wish) {
     wish.completed = !wish.completed;
     if(wish.completed)
@@ -31,6 +25,7 @@ export class WishListComponent {
     this.wishes = this.wishes.filter(wish => wish.id !== id);
     localStorage.setItem('wishList', JSON.stringify(this.wishes));
   }
+  
   addNewWish(wish: string) {
     this.wishes.push({
       id: this.wishes.length + 1,
@@ -42,6 +37,6 @@ export class WishListComponent {
   }
 
   get filteredWishes(){
-    return this.wishes.filter(filters[this.filter]);
+    return this.wishes.filter(this.filter);
   }
 }

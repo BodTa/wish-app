@@ -1,7 +1,7 @@
 <select
   class="shadow-md p-2 rounded-md outline-none focus:ring-2 focus:ring-green-400 transition-all"
-  [(ngModel)]="filter"
-  (ngModelChange)="filterWish()"
+  [(ngModel)]="filterNumber"
+  (ngModelChange)="filterWish($event)"
 >
   <option value="0">All</option>
   <option value="1">Completed</option>

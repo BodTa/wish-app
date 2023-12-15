@@ -2,7 +2,7 @@
   class="w-screen flex justify-center items-start pt-12 h-screen overflow-hidden"
 >
   <div class="flex gap-4 items-start justify-center">
-    <wish-filter-form (filterText)="getFilter($event)"></wish-filter-form>
-    <wish-list [wishes]="wishList" [filter]="filter"></wish-list>
+    <wish-filter-form [(filter)]="filter"></wish-filter-form>
+    <wish-list [wishes]="wishList.filter(filter)" [filter]="filter"></wish-list>
   </div>
 </div>

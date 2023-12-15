@@ -21,13 +21,10 @@ export class AppComponent implements OnInit {
     { id: 2, wish: 'I wish I could be invisible', createdAt: new Date(), completed: false },
     { id: 3, wish: 'I wish I could be a millionaire', createdAt: new Date(), completed: false },
   ];
-  filter: number = 0;
-
+  
+  filter: any;
 
   ngOnInit(): void {
     this.wishList =localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList') || '{}') : this.initialList;
-  }
-  getFilter(filter: number){
-    this.filter = filter;
   }
 }
