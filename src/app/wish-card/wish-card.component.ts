@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Wish } from '../../shared/modules/Wish';
 import { DatePipe } from '@angular/common';
+import events from '../../shared/services/EventService';
 @Component({
   selector: 'wish-card',
   standalone: true,
@@ -17,10 +18,11 @@ export class WishCardComponent {
   };  
   @Output() deletedWishId = new EventEmitter<number>();
   @Output() updatedWish = new EventEmitter<Wish>();
+  
   toggleCheck(){
     this.updatedWish.emit(this.wish);
   }
   deteleWish(){
-    this.deletedWishId.emit(this.wish.id);
+    events.emit('deleteWish',this.wish.id);
   }
 }
