@@ -1,5 +1,5 @@
 <div
-  class="grid grid-cols-8 gap-2 items-center p-2 shadow-md bg-slate-100 rounded-md"
+  class="grid grid-cols-6 gap-2 items-center p-2 shadow-md bg-slate-100 rounded-md"
 >
   <input
     class="cursor-pointer"
@@ -15,11 +15,6 @@
       wish.wish
     }}</span>
   }
-  <span class="col-span-2">{{
-    wish.completed
-      ? (wish.completedAt | date: "short")
-      : (wish.createdAt | date: "short")
-  }}</span>
   <button
     class="p-1 rounded-md bg-red-400 hover:bg-red-500 hover:scale-105 transition-all"
     (click)="deteleWish()"

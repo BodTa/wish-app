@@ -13,7 +13,6 @@ export class WishCardComponent {
   @Input() wish: Wish = {
     id: 0,
     wish: '',
-    createdAt: new Date(),
     completed: false
   };  
   @Output() deletedWishId = new EventEmitter<number>();
