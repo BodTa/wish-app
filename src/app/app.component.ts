@@ -6,6 +6,7 @@ import { WishListComponent } from "./wish-list/wish-list.component";
 import { WishFilterFormComponent } from "./wish-filter-form/wish-filter-form.component";
 import { WishAddFormComponent } from "./wish-add-form/wish-add-form.component";
 import {EventService} from "../shared/services/EventService";
+import { WishService } from '../shared/services/wish.service';
 
 
 @Component({
@@ -18,24 +19,20 @@ import {EventService} from "../shared/services/EventService";
 export class AppComponent implements OnInit {
   title = 'wish-app';
   wishList:  Wish[] =[];
-  initialList: Wish[] = [
-    { id: 1, wish: 'I wish I could fly', completed: false },
-    { id: 2, wish: 'I wish I could be invisible', completed: false },
-    { id: 3, wish: 'I wish I could be a millionaire', completed: false },
-  ];
-
   filter: any;
-
-  ngOnInit(): void {
-    this.wishList =localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList') || '{}') : this.initialList;
-  }
-
-  constructor(private events: EventService) {
+  
+  constructor(private events: EventService, private wishService: WishService) {
     this.events.listen('deleteWish', (id: number) => {
       this.wishList = this.wishList.filter((wish) => wish.id !== id);
       localStorage.setItem('wishList', JSON.stringify(this.wishList));
     });
   }
+  ngOnInit(): void {
+    this.wishService.getWishes().subscribe((data:any)=>{
+        this.wishList = data;
+    });
+  }
+
   
   addNewWish(wish: string) {
     this.wishList.push({
