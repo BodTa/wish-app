@@ -5,7 +5,7 @@ import { Wish } from '../shared/modules/Wish';
 import { WishListComponent } from "./wish-list/wish-list.component";
 import { WishFilterFormComponent } from "./wish-filter-form/wish-filter-form.component";
 import { WishAddFormComponent } from "./wish-add-form/wish-add-form.component";
-import events from "../shared/services/EventService";
+import {EventService} from "../shared/services/EventService";
 
 
 @Component({
@@ -30,8 +30,8 @@ export class AppComponent implements OnInit {
     this.wishList =localStorage.getItem('wishList') ? JSON.parse(localStorage.getItem('wishList') || '{}') : this.initialList;
   }
 
-  constructor() {
-    events.listen('deleteWish', (id: number) => {
+  constructor(private events: EventService) {
+    this.events.listen('deleteWish', (id: number) => {
       this.wishList = this.wishList.filter((wish) => wish.id !== id);
       localStorage.setItem('wishList', JSON.stringify(this.wishList));
     });
