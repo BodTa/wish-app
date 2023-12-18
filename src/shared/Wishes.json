@@ -1,7 +1,0 @@
-[
-    {"id":1,"wish":"Wish One","completed":false},
-    {"id":2,"wish":"Wish Two","completed":false},
-    {"id":3,"wish":"Wish Three","completed":true},
-    {"id":4,"wish":"Wish Four","completed":true},
-    {"id":5,"wish":"Wish Five","completed":false}
-]

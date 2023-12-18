@@ -14,11 +14,6 @@ export class WishListComponent {
 @Input() filter =()=>{};
  updateWish(wish: Wish) {
     wish.completed = !wish.completed;
-    if(wish.completed)
-    wish.completedAt = new Date();
-  else{
-    wish.completedAt = undefined;
-  }
     localStorage.setItem('wishList', JSON.stringify(this.wishes));
   }
  deleteWish(id: number) {
