@@ -7,6 +7,7 @@ import { WishFilterFormComponent } from "./wish-filter-form/wish-filter-form.com
 import { WishAddFormComponent } from "./wish-add-form/wish-add-form.component";
 import {EventService} from "../shared/services/EventService";
 import { WishService } from '../shared/services/wish.service';
+import { error } from 'console';
 
 
 @Component({
@@ -30,6 +31,8 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.wishService.getWishes().subscribe((data:any)=>{
         this.wishList = data;
+    },(error)=>{
+        console.log(error);
     });
   }
 
